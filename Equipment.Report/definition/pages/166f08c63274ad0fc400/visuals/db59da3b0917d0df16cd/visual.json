@@ -82,5 +82,51 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ae562e75d33d5acdb300",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Maintenance_Schedule"
+              }
+            },
+            "Property": "Due Count"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4c5be94900b1b8bbe7bb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Maintenance_Schedule"
+              }
+            },
+            "Property": "Completed Count"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "be87e165013080067230",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Maintenance_Schedule"
+              }
+            },
+            "Property": "Date Service Completed Count"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
