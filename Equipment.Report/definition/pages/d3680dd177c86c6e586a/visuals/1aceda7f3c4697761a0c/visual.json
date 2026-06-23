@@ -182,6 +182,11 @@
             "metadata": "Equipment.Name"
           }
         }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
       ]
     },
     "drillFilterOtherVisuals": true
@@ -240,6 +245,118 @@
             }
           ]
         }
+      },
+      {
+        "name": "068b248c11e99c695c5b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Equipment"
+              }
+            },
+            "Property": "id"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6ae8777a72cd009a0a0e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Equipment"
+              }
+            },
+            "Property": "Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "65a472ad55004005cb62",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Department"
+              }
+            },
+            "Property": "Department"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b7dd0080570128cbca09",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Equipment"
+              }
+            },
+            "Property": "model_no"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4e7253b7175569d8c9a0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Maintenance_Schedule"
+              }
+            },
+            "Property": "Status"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b9ecc750d0b9000e3655",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Maintenance_Schedule"
+              }
+            },
+            "Property": "Cal Within 30 days"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ee6754b8c5d9d20453b2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Maintenance_Schedule"
+              }
+            },
+            "Property": "date_calculated_service_due"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fe2501704a22026c0b6b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Maintenance_Schedule"
+              }
+            },
+            "Property": "Date_Service_Completed"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }
