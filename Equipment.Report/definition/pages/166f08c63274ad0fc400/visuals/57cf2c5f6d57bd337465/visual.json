@@ -46,7 +46,8 @@
                 }
               },
               "queryRef": "Maintenance_Schedule.Date Service Completed Count",
-              "nativeQueryRef": "Date Service Completed Count"
+              "nativeQueryRef": "Completed Count",
+              "displayName": "Completed Count"
             }
           ]
         }
@@ -71,5 +72,37 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0a08ecec50b110a91408",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Date"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e3574c1c7bc23221ce02",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Maintenance_Schedule"
+              }
+            },
+            "Property": "Date Service Completed Count"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

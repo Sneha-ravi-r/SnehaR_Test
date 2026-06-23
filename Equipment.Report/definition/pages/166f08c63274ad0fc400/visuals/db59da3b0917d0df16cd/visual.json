@@ -38,21 +38,6 @@
                       "Entity": "Maintenance_Schedule"
                     }
                   },
-                  "Property": "Completed Count"
-                }
-              },
-              "queryRef": "Maintenance_Schedule.Completed Count",
-              "nativeQueryRef": "Date Servicee Completed Count",
-              "displayName": "Date Servicee Completed Count"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Maintenance_Schedule"
-                    }
-                  },
                   "Property": "Date Service Completed Count"
                 }
               },
@@ -95,20 +80,6 @@
               }
             },
             "Property": "Due Count"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "4c5be94900b1b8bbe7bb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Maintenance_Schedule"
-              }
-            },
-            "Property": "Completed Count"
           }
         },
         "type": "Advanced"
