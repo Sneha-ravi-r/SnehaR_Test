@@ -153,6 +153,11 @@
             "metadata": "Equipment.Name"
           }
         }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
       ]
     },
     "drillFilterOtherVisuals": true
