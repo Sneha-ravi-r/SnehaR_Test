@@ -1,4 +1,4 @@
-expression Workspace = "SnehaR_Test" meta [IsParameterQuery=true, List={"SnehaR_Test"}, DefaultValue="SnehaR_Test", Type="Text", IsParameterQueryRequired=true]
+expression Workspace = "SnehaR_Test_Copy" meta [IsParameterQuery = true, IsParameterQueryRequired = true, Type = "Text", List = {"SnehaR_Test"}, DefaultValue = "SnehaR_Test"]
 	lineageTag: 89ed42ce-05f8-492f-bef3-94ebf35bfd7e
 
 	annotation PBI_NavigationStepName = Navigation
