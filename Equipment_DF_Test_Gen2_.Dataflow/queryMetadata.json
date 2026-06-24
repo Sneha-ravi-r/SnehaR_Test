@@ -6,60 +6,68 @@
   "name": "Equipment_DF_Test",
   "queryGroups": [],
   "documentLocale": "en-IN",
+  "gatewayObjectId": "891e1d14-f031-4100-8979-91e6e003c5f3",
   "queriesMetadata": {
-    "calibration_Category": {
+    "Calibration_Category": {
       "queryId": "4b76d438-0812-40ff-ba6b-245eb3116610",
       "queryName": "Calibration_Category"
     },
-    "equipment": {
+    "Equipment": {
       "queryId": "902e7133-ff55-48d5-9c18-25c0fd090054",
       "queryName": "Equipment"
     },
-    "maintenance_Schedule": {
+    "Maintenance_Schedule": {
       "queryId": "618751a6-8811-4c0b-9a03-a6b20dab6f14",
       "queryName": "Maintenance_Schedule"
     },
-    "service_Type": {
+    "Service_Type": {
       "queryId": "532bd79a-1a5d-4a79-b78c-83779c1d97df",
       "queryName": "Service_Type"
     },
-    "dbName": {
+    "DBName": {
       "queryId": "8c10da0a-6b43-448e-81d0-4525b96d6c3d",
       "queryName": "DBName",
       "loadEnabled": false
     },
-    "dfVersion": {
+    "DFVersion": {
       "queryId": "1f67af4b-c07b-46bc-9b0d-17e4e4809bc6",
       "queryName": "DFVersion",
       "loadEnabled": false
     },
-    "df Last Updated": {
+    "DF Last Updated": {
       "queryId": "0e655c9b-e483-435a-935f-3ec3fbcc08ac",
       "queryName": "DF Last Updated"
     },
-    "calibration": {
+    "Calibration": {
       "queryId": "aa6f84ef-811c-4bd3-91f3-e37aa07e468a",
       "queryName": "Calibration"
     },
-    "department": {
+    "Department": {
       "queryId": "3f53abeb-4c26-4ad2-a509-da51c7d1261f",
       "queryName": "Department"
     },
-    "equipment_Calibration": {
+    "Equipment_Calibration": {
       "queryId": "8be6f8aa-af6b-40f9-bec0-f76eccb77e06",
       "queryName": "Equipment_Calibration"
     },
-    "checkout_Type": {
+    "Checkout_Type": {
       "queryId": "e6459798-1d03-466e-9c9a-119a681e74d7",
       "queryName": "Checkout_Type"
     },
-    "equipment_Location": {
+    "Equipment_Location": {
       "queryId": "e630466e-3e24-467d-b043-9718ef3b8477",
       "queryName": "Equipment_Location"
     },
-    "checkout_Log": {
+    "Checkout_Log": {
       "queryId": "d8f7ecdd-9b08-46c1-a7a5-1e3b820615b8",
       "queryName": "Checkout_Log"
     }
-  }
+  },
+  "connections": [
+    {
+      "path": "localhost;gbs-trutesta-sandbox-prod",
+      "kind": "PostgreSQL",
+      "connectionId": "{\"ClusterId\":\"891e1d14-f031-4100-8979-91e6e003c5f3\",\"DatasourceId\":\"e2c28142-3f10-4999-a29b-68530dc78eeb\"}"
+    }
+  ]
 }

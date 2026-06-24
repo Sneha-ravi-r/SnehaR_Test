@@ -1,9 +1,9 @@
-table Checkout_type
-	lineageTag: c633e458-1a01-42c6-af22-7bf3aa6032e6
+table Checkout_Type
+	lineageTag: 020d435a-403a-421a-bb1c-447d2bfb7e18
 
 	column id
 		dataType: string
-		lineageTag: e73082a0-3b29-44bc-9790-c8102c84e757
+		lineageTag: f5888d3e-9976-4eb5-b924-5ce61c537b40
 		summarizeBy: none
 		sourceColumn: id
 
@@ -11,7 +11,7 @@ table Checkout_type
 
 	column tenant_id
 		dataType: string
-		lineageTag: aa862a69-f498-41fb-8929-a6e14c241843
+		lineageTag: d7b79364-3ddc-4b81-b58c-99778f60a3fe
 		summarizeBy: none
 		sourceColumn: tenant_id
 
@@ -19,7 +19,7 @@ table Checkout_type
 
 	column name_text
 		dataType: string
-		lineageTag: 55cbdb7f-bd3d-4f6c-b61d-3fbf240ea4f1
+		lineageTag: 14a66118-4453-4ff9-8ba9-b344f00698f5
 		summarizeBy: none
 		sourceColumn: name_text
 
@@ -27,7 +27,7 @@ table Checkout_type
 
 	column business_code
 		dataType: string
-		lineageTag: 5891cd8f-bf7c-4dfc-90cd-baa18f33fc42
+		lineageTag: 38412fa5-c0ce-41c8-91bc-119a8124dc0b
 		summarizeBy: none
 		sourceColumn: business_code
 
@@ -35,7 +35,7 @@ table Checkout_type
 
 	column description
 		dataType: string
-		lineageTag: 808e44d4-48f8-4126-b808-16b052c67b5e
+		lineageTag: d844cc91-47e8-4afb-bb04-702f12acb366
 		summarizeBy: none
 		sourceColumn: description
 
@@ -44,7 +44,7 @@ table Checkout_type
 	column status
 		dataType: int64
 		formatString: 0
-		lineageTag: c5ce63ad-901a-483c-b6c3-6b9faac46dc9
+		lineageTag: 4c50d3eb-d5dc-4a06-b542-db87fc5ddcae
 		summarizeBy: sum
 		sourceColumn: status
 
@@ -52,7 +52,7 @@ table Checkout_type
 
 	column checkin_checklist_id
 		dataType: string
-		lineageTag: 53ef4f59-324d-477c-95f3-897185c6f874
+		lineageTag: df1d74d7-74a4-4d99-be67-94ac935971ee
 		summarizeBy: none
 		sourceColumn: checkin_checklist_id
 
@@ -60,7 +60,7 @@ table Checkout_type
 
 	column placeholder_template_group_id
 		dataType: string
-		lineageTag: fc8fecb1-98ee-4ce6-ae29-5ea7da49f2d0
+		lineageTag: 4ce32cb3-9a0f-4d70-9d26-40356b8960ce
 		summarizeBy: none
 		sourceColumn: placeholder_template_group_id
 
@@ -69,20 +69,20 @@ table Checkout_type
 	column date_created
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: c81580b0-2107-472a-8498-9e988fa9d616
+		lineageTag: 95ed5c95-4b90-4c3c-9c89-fb18fd048be3
 		summarizeBy: none
 		sourceColumn: date_created
 
 		variation Variation
 			isDefault
-			relationship: 6ded5d5d-e15d-4ff4-a9a2-f967e49a657a
-			defaultHierarchy: LocalDateTable_4ccb7a6d-89a3-45b7-a6b4-a69347339327.'Date Hierarchy'
+			relationship: e538d650-29b1-465d-95a9-0769fa136003
+			defaultHierarchy: LocalDateTable_ea0fc141-9506-4cfa-9e91-1a927c63ee0d.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
 	column created_by_name
 		dataType: string
-		lineageTag: f70bd550-25c0-47d0-ae08-b391399f5db4
+		lineageTag: 114caee4-12d8-4d8a-b809-5901e4d21928
 		summarizeBy: none
 		sourceColumn: created_by_name
 
@@ -91,20 +91,20 @@ table Checkout_type
 	column date_last_updated
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 00174875-69da-4b56-aec4-b933caa9dd9e
+		lineageTag: 10c9cccf-8353-4648-86f1-9e56b9051f2e
 		summarizeBy: none
 		sourceColumn: date_last_updated
 
 		variation Variation
 			isDefault
-			relationship: 538da974-c6c4-4187-b020-2eed648c57c9
-			defaultHierarchy: LocalDateTable_edd45e19-266b-4b69-a4fd-af7abdc29a29.'Date Hierarchy'
+			relationship: 0329d766-66d2-4404-b4b6-4804c3d4b27d
+			defaultHierarchy: LocalDateTable_9b51a55a-c78d-4079-9c73-c8ba3f6ba476.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
 	column lastupdated_by_name
 		dataType: string
-		lineageTag: 98bfbb4e-849a-4fd0-9253-f90c150dfb08
+		lineageTag: f98e8af2-8adb-476e-9322-c5eb4e8e54eb
 		summarizeBy: none
 		sourceColumn: lastupdated_by_name
 
@@ -112,25 +112,20 @@ table Checkout_type
 
 	column document_upload_policy_id
 		dataType: string
-		lineageTag: adf43e98-59e9-4778-bca0-415f0a5de7b6
+		lineageTag: 494e435c-46c8-4a17-a008-d311c1c04d91
 		summarizeBy: none
 		sourceColumn: document_upload_policy_id
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Checkout_type = m
+	partition Checkout_Type = m
 		mode: import
 		source =
 				let
-				    Source = PowerPlatform.Dataflows(null),
-				    Workspaces = Source{[Id="Workspaces"]}[Data],
-				    Workspace = Workspaces{[workspaceId=getWorkspaceUUID ()]}[Data],
-				    Dataflow = Workspace {[dataflowId=getDataflowUUID ("Equipment_DF_Test")]}[Data],
-				    #"trutesta_equipment equipment_checkout_type_" = Dataflow {[entity="trutesta_equipment equipment_checkout_type",version=""]}[Data]
+				  Source = PostgreSQL.Database("localhost", "gbs-trutesta-sandbox-prod"),
+				  #"Navigation 1" = Source{[Schema = "trutesta_equipment", Item = "equipment_checkout_type"]}[Data]
 				in
-				    #"trutesta_equipment equipment_checkout_type_"
-
-	annotation PBI_NavigationStepName = Navigation
+				  #"Navigation 1"
 
 	annotation PBI_ResultType = Table
 

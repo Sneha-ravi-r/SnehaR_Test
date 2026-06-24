@@ -76,30 +76,6 @@ relationship 069180f2-e674-71be-a785-085467d66efa
 	fromColumn: Equipment.department_id
 	toColumn: Department.id
 
-relationship 9bb9b9b4-9367-48ed-8483-1eb520f6396a
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Checkout_log.date_last_updated
-	toColumn: LocalDateTable_0d9db0e1-868e-4325-92a0-7149e6e31444.Date
-
-relationship b9e202ef-fc1d-4035-b23f-6a8f0eba9296
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Checkout_log.date_estimated_checkin
-	toColumn: LocalDateTable_a7d98824-4d8e-4728-9650-5f348133f41a.Date
-
-relationship 6ded5d5d-e15d-4ff4-a9a2-f967e49a657a
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Checkout_type.date_created
-	toColumn: LocalDateTable_4ccb7a6d-89a3-45b7-a6b4-a69347339327.Date
-
-relationship 538da974-c6c4-4187-b020-2eed648c57c9
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Checkout_type.date_last_updated
-	toColumn: LocalDateTable_edd45e19-266b-4b69-a4fd-af7abdc29a29.Date
-
-relationship 070b9ff1-0804-d172-f48c-a99b90b802ff
-	fromColumn: Checkout_log.equipment_id
-	toColumn: Equipment.id
-
 relationship 4dbf0805-eaf6-4e59-adde-2d07c6a9a845
 	joinOnDateBehavior: datePartOnly
 	fromColumn: Maintenance_Schedule.date_created
@@ -177,23 +153,10 @@ relationship 0eb4e668-2e4e-bba7-bbb3-d7a5eff9c33d
 	fromColumn: Maintenance_Schedule.Date_Service_Completed
 	toColumn: Date.Date
 
-relationship 94fa7c4d-342d-8f7b-a03f-05bb60940bea
-	fromColumn: Checkout_log.date_created
-	toColumn: Date.Date
-
-relationship 4acd3bc8-db90-f15d-c89c-dd21158ed91c
-	isActive: false
-	fromColumn: Checkout_log.date_of_check_in
-	toColumn: Date.Date
-
 relationship d38949c4-a1fd-4fbc-82a3-b63b2e191dc1
 	joinOnDateBehavior: datePartOnly
 	fromColumn: Calendar.Date
 	toColumn: LocalDateTable_34d970fc-36dd-448f-abc9-bd795573ed87.Date
-
-relationship 5de65806-8cf2-67fa-03be-465b8ee21b77
-	fromColumn: Checkout_log.checkout_type_id
-	toColumn: Checkout_type.id
 
 relationship 771f6ca1-f4b2-5433-7b64-ed212ffa92bf
 	fromColumn: Maintenance_Schedule.service_type_id
@@ -202,4 +165,40 @@ relationship 771f6ca1-f4b2-5433-7b64-ed212ffa92bf
 relationship de79d595-66d9-a15c-b181-e682690a5280
 	fromColumn: Maintenance_Schedule.equipment_id
 	toColumn: Equipment.id
+
+relationship 094644e0-e903-4a84-9c34-88edb7054497
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Checkout_Log.date_of_check_in
+	toColumn: LocalDateTable_19d8e233-c11e-46b3-b5f9-0281312797e1.Date
+
+relationship 42e751eb-bd5e-4c85-a35c-ba6d3db61e98
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Checkout_Log.date_created
+	toColumn: LocalDateTable_fc240c0a-c7de-4857-8714-31254d9fa3e5.Date
+
+relationship 3403ef34-5aa6-4a9f-9673-a59a5fa3b953
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Checkout_Log.date_last_updated
+	toColumn: LocalDateTable_34919d38-e432-4269-8a2e-2e29b70f768d.Date
+
+relationship 114cecd5-a86a-437a-81a7-45e02a0b4ae2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Checkout_Log.date_estimated_checkin
+	toColumn: LocalDateTable_6f4fba83-5460-4902-8776-9801c7d896d3.Date
+
+relationship e538d650-29b1-465d-95a9-0769fa136003
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Checkout_Type.date_created
+	toColumn: LocalDateTable_ea0fc141-9506-4cfa-9e91-1a927c63ee0d.Date
+
+relationship 0329d766-66d2-4404-b4b6-4804c3d4b27d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Checkout_Type.date_last_updated
+	toColumn: LocalDateTable_9b51a55a-c78d-4079-9c73-c8ba3f6ba476.Date
+
+relationship b0e11e4a-3941-4aa8-aa5d-315b7da33086
+	fromColumn: Checkout_Log.checkout_type_id
+	toColumn: Checkout_Type.id
+
+	annotation PBI_IsFromSource = FS
 
