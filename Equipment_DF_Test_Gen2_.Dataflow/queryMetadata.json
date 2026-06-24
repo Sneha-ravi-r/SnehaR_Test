@@ -49,10 +49,6 @@
       "queryId": "8be6f8aa-af6b-40f9-bec0-f76eccb77e06",
       "queryName": "Equipment_Calibration"
     },
-    "checkout_Log": {
-      "queryId": "971ca771-d178-4a44-b802-c2b6bfd8aedd",
-      "queryName": "Checkout_Log"
-    },
     "checkout_Type": {
       "queryId": "e6459798-1d03-466e-9c9a-119a681e74d7",
       "queryName": "Checkout_Type"
@@ -60,6 +56,10 @@
     "equipment_Location": {
       "queryId": "e630466e-3e24-467d-b043-9718ef3b8477",
       "queryName": "Equipment_Location"
+    },
+    "checkout_Log": {
+      "queryId": "d8f7ecdd-9b08-46c1-a7a5-1e3b820615b8",
+      "queryName": "Checkout_Log"
     }
   }
 }

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "Dataflow",
-    "displayName": "Equipment_DF_Test_Gen2",
+    "displayName": "Equipment_DF_Test_Gen2_",
     "description": ""
   },
   "config": {
     "version": "2.0",
-    "logicalId": "5ba8210f-3423-8b97-473d-7660b5ac006f"
+    "logicalId": "b83c0377-bb64-bc5a-4de5-115b84b3a623"
   }
 }

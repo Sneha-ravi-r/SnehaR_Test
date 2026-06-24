@@ -74,12 +74,6 @@ shared Equipment_Calibration = let
   Source = PostgreSQL.Database("localhost", DBName, [Query = "SELECT#(lf)ec.id,#(lf)ec.tenant_id,#(lf)ec.equipment_id,#(lf)ec.calibration_date,#(lf)ec.calibration_result,#(lf)ec.date_created,#(lf)ec.date_sent_for_calibration,#(lf)ec.date_service_due,#(lf)ec.date_service_completed,#(lf)ec.date_service_canceled,#(lf)ec.service_type_id,#(lf)ec.service_result_id,#(lf)ec.currency_iso_code,#(lf)ec.service_fee,#(lf)ec.status_code,#(lf)ec.maintenance_schedule_id,#(lf)ec.compliance_status#(lf)FROM trutesta_equipment.equipment_calibration ec#(lf)JOIN trutesta_equipment.equipment e ON ec.equipment_id = e.id#(lf)WHERE ec.service_type_id IS NOT NULL#(lf)AND e.calibration_category_id IS NOT NULL;", CreateNavigationProperties = false])
 in
   Source;
-shared Checkout_Log = let
-  Source = PostgreSQL.Database("localhost", "gbs-trutesta-sandbox-prod"),
-  #"Navigation 1" = Source{[Schema = "trutesta_equipment", Item = "equipment_checkout_log"]}[Data],
-  #"Remove columns" = Table.RemoveColumns(#"Navigation 1", Table.ColumnsOfType(#"Navigation 1", {type table, type record, type list, type nullable binary, type binary, type function}))
-in
-  #"Remove columns";
 shared Checkout_Type = let
   Source = PostgreSQL.Database("localhost", "gbs-trutesta-sandbox-prod"),
   #"Navigation 1" = Source{[Schema = "trutesta_equipment", Item = "equipment_checkout_type"]}[Data],
@@ -89,6 +83,12 @@ in
 shared Equipment_Location = let
   Source = PostgreSQL.Database("localhost", "gbs-trutesta-sandbox-prod"),
   #"Navigation 1" = Source{[Schema = "trutesta_equipment", Item = "equipment_location"]}[Data],
+  #"Remove columns" = Table.RemoveColumns(#"Navigation 1", Table.ColumnsOfType(#"Navigation 1", {type table, type record, type list, type nullable binary, type binary, type function}))
+in
+  #"Remove columns";
+shared Checkout_Log = let
+  Source = PostgreSQL.Database("localhost", "gbs-trutesta-sandbox-prod"),
+  #"Navigation 1" = Source{[Schema = "trutesta_equipment", Item = "equipment_checkout_log"]}[Data],
   #"Remove columns" = Table.RemoveColumns(#"Navigation 1", Table.ColumnsOfType(#"Navigation 1", {type table, type record, type list, type nullable binary, type binary, type function}))
 in
   #"Remove columns";
