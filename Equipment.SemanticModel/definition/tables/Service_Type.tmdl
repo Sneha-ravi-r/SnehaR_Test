@@ -176,7 +176,7 @@ table Service_Type
 				    Workspaces = Source{[Id="Workspaces"]}[Data],
 				    Workspace = Workspaces{[workspaceId=getWorkspaceUUID ()]}[Data],
 				    Dataflow = Workspace {[dataflowId=getDataflowUUID ("Equipment_DF_Test")]}[Data],
-				    #"Service Type_" = Dataflow{[entity="Service Type",version=""]}[Data],
+				    #"Service Type_" = Dataflow{[entity="Service_Type",version=""]}[Data],
 				    #"Renamed Columns" = Table.RenameColumns(#"Service Type_",{{"name_text", "Service Type"}})
 				in
 				    #"Renamed Columns"

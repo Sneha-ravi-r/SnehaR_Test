@@ -169,7 +169,7 @@ table Calibration_Category
 				    Workspaces = Source{[Id="Workspaces"]}[Data],
 				    Workspace = Workspaces{[workspaceId=getWorkspaceUUID ()]}[Data],
 				    Dataflow = Workspace {[dataflowId=getDataflowUUID ("Equipment_DF_Test")]}[Data],
-				    #"Calibration Category_" = Dataflow{[entity="Calibration Category",version=""]}[Data],
+				    #"Calibration Category_" = Dataflow{[entity="Calibration_Category",version=""]}[Data],
 				    #"Renamed Columns" = Table.RenameColumns(#"Calibration Category_",{{"name_text", "Category"}})
 				in
 				    #"Renamed Columns"

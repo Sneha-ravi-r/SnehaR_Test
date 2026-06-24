@@ -1,0 +1,148 @@
+table Equipment_Location
+	lineageTag: eed880ee-ce4f-441a-91d8-977efbd89dd5
+
+	column id
+		dataType: string
+		lineageTag: 03eb44d1-eb81-490f-b755-55a14e5aef5d
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column tenant_id
+		dataType: string
+		lineageTag: 28905973-e58e-4011-b61b-3df32658c9d9
+		summarizeBy: none
+		sourceColumn: tenant_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name_text
+		dataType: string
+		lineageTag: 281fa841-8837-4d23-96bb-7af68d3fed46
+		summarizeBy: none
+		sourceColumn: name_text
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 56b334f2-6398-4062-b762-63e2d12ca304
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: int64
+		formatString: 0
+		lineageTag: 36bdd272-5859-4b57-a2c0-364524ff65bf
+		summarizeBy: sum
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column geo_latitude
+		dataType: double
+		lineageTag: 782ab5cc-0082-4722-8131-53fbfee883c2
+		summarizeBy: sum
+		sourceColumn: geo_latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column geo_longitude
+		dataType: double
+		lineageTag: ed5157e9-4428-4995-b66f-5969a424bc9f
+		summarizeBy: sum
+		sourceColumn: geo_longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column date_created
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9b08c3c0-e1fe-43bb-8d2c-f57c8f93419b
+		summarizeBy: none
+		sourceColumn: date_created
+
+		variation Variation
+			isDefault
+			relationship: 0d5cee49-fec0-4b12-b845-8ce5f0915fa0
+			defaultHierarchy: LocalDateTable_14d1b479-4834-427b-800c-8596455fd5ce.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column created_by_name
+		dataType: string
+		lineageTag: 10622d87-99c7-4e69-894e-c8229c73073e
+		summarizeBy: none
+		sourceColumn: created_by_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a489c7d0-ed79-4640-8b86-e9f9de0e47de
+		summarizeBy: none
+		sourceColumn: date_last_updated
+
+		variation Variation
+			isDefault
+			relationship: 53f18ffe-1115-4732-adbc-0a17475c95cc
+			defaultHierarchy: LocalDateTable_65d56bce-5e6f-47f3-b884-87985208e4fd.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column lastupdated_by_name
+		dataType: string
+		lineageTag: 0f37b507-68e9-4e7c-ad43-25ca5c7ad858
+		summarizeBy: none
+		sourceColumn: lastupdated_by_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column organization_id
+		dataType: string
+		lineageTag: fea6868d-690f-45d5-9ff9-e23fa12d6ed8
+		summarizeBy: none
+		sourceColumn: organization_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column equipment_location_type_id
+		dataType: string
+		lineageTag: 7c02374c-b5fb-4810-8315-0c8ddee1169d
+		summarizeBy: none
+		sourceColumn: equipment_location_type_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column site_id
+		dataType: string
+		lineageTag: 78611fc2-043e-44b7-9713-0b9b1f26d3f7
+		summarizeBy: none
+		sourceColumn: site_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Equipment_Location = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"d1b4e9be-540b-4c44-8fd8-386437cbb29a" = Workspaces{[workspaceId="d1b4e9be-540b-4c44-8fd8-386437cbb29a"]}[Data],
+				    #"25ec447e-e298-44ad-aa87-080587ac4c6e" = #"d1b4e9be-540b-4c44-8fd8-386437cbb29a"{[dataflowId="25ec447e-e298-44ad-aa87-080587ac4c6e"]}[Data],
+				    Equipment_Location_ = #"25ec447e-e298-44ad-aa87-080587ac4c6e"{[entity="Equipment_Location",version=""]}[Data]
+				in
+				    Equipment_Location_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

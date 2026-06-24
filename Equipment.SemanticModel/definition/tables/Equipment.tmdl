@@ -1,41 +1,6 @@
 table Equipment
 	lineageTag: bec1b68d-11ce-44cf-bc5e-6cee6ec121ee
 
-	measure 'Total Equipment' = COUNTROWS(Equipment)
-		formatString: #,0
-		lineageTag: d3e39e93-af5e-4311-980b-c35824554861
-
-		annotation PBI_FormatHint = {"isDecimal":true}
-
-	measure 'Equipment Overdue' =
-			CALCULATE(COUNTROWS('Equipment'),
-			'Equipment'[date_service_due]<TODAY()
-			)
-		formatString: 0
-		lineageTag: d722a7cd-663a-4f6a-82aa-9591232d8f8b
-
-	measure 'Equ Cal Overdue' =
-			
-			CALCULATE(
-			    COUNTROWS('Equipment'),
-			    'Service_Type'[is_type_calibration] = 1,
-			    'Maintenance_Schedule'[date_calculated_service_due] < TODAY(),
-			    ISBLANK('Maintenance_Schedule'[Date_Service_Completed])
-			)
-		formatString: 0
-		lineageTag: f7dfc94a-3e12-415a-848e-f50281ffd64b
-
-	measure 'Equ Overdue' =
-			
-			CALCULATE(
-			    DISTINCTCOUNT('Equipment'[id]),
-			    'Service_Type'[is_type_calibration] = 1,
-			    'Maintenance_Schedule'[date_calculated_service_due] < TODAY(),
-			    ISBLANK('Maintenance_Schedule'[Date_Service_Completed])
-			)
-		formatString: 0
-		lineageTag: 02ddca9a-5159-4c5c-9358-602c2f117801
-
 	column id
 		dataType: string
 		lineageTag: d4e17e14-d7ab-4ab0-80f8-e96e13f82db0

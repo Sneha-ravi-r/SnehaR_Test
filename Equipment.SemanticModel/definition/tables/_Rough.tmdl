@@ -1,0 +1,18 @@
+table _Rough
+	lineageTag: 80cdcb66-177a-4887-9e29-a40340d2c9f9
+
+	column Value
+		formatString: 0
+		lineageTag: fa4c528d-24d8-469f-87cd-515a61c1ca8c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Rough = calculated
+		mode: import
+		source = {1}
+
+	annotation PBI_Id = 50035ad53fd6466e962b31651f3c7c45
+

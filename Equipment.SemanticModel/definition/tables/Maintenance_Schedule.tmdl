@@ -1,130 +1,11 @@
 table Maintenance_Schedule
 	lineageTag: 272cfa18-3ed2-41c9-bd99-8ccb2af2d3f3
 
-	measure 'Cal Within 30 days' =
+	measure 'Records per Equipment' =
 			
-			CALCULATE(
-			    COUNTROWS('Maintenance_Schedule'),
-			    'Maintenance_Schedule'[date_calculated_service_due]>= TODAY(),
-			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 30,
-			    'Service_Type'[is_type_calibration]= 1
-			)
+			COUNTROWS('Maintenance_Schedule')
 		formatString: 0
-		lineageTag: d9e684a3-e093-4b31-b168-0976385c3303
-
-	measure 'Cal Within 60 days' =
-			
-			CALCULATE(
-			    COUNTROWS('Maintenance_Schedule'),
-			    'Maintenance_Schedule'[date_calculated_service_due]> TODAY(),
-			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 60,
-			    'Service_Type'[is_type_calibration]= 1
-			)
-		formatString: 0
-		lineageTag: 89614799-843f-4dfb-90dd-1b64c85612c1
-
-	measure 'Cal Within 90 days' =
-			
-			CALCULATE(
-			    COUNTROWS('Maintenance_Schedule'),
-			    'Maintenance_Schedule'[date_calculated_service_due]> TODAY() + 60,
-			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 90,
-			    'Service_Type'[is_type_calibration]= 1
-			)
-		formatString: 0
-		lineageTag: cf4f6302-2f6e-4f48-87ff-e233b79f8fdd
-
-	measure 'Cal Overdue' =
-			CALCULATE(COUNTROWS('Maintenance_Schedule'),
-			'Service_Type'[is_type_calibration]= 1,
-			'Maintenance_Schedule'[date_calculated_service_due]<TODAY(),
-			ISBLANK('Maintenance_Schedule'[Date_Service_Completed])
-			)
-		formatString: 0
-		lineageTag: be54aa55-318a-4de6-b774-b35af51216a3
-
-	measure 'Main Within 30 days' =
-			
-			CALCULATE(
-			    COUNTROWS('Maintenance_Schedule'),
-			    'Maintenance_Schedule'[date_calculated_service_due]>= TODAY(),
-			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 30,
-			    'Service_Type'[is_type_calibration]= 0
-			)
-		formatString: 0
-		lineageTag: 86f4d42f-b780-4db8-8abe-2c9a8486d763
-
-	measure 'Main Within 60 days' =
-			
-			CALCULATE(
-			    COUNTROWS('Maintenance_Schedule'),
-			    'Maintenance_Schedule'[date_calculated_service_due]> TODAY() +30,
-			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 60,
-			    'Service_Type'[is_type_calibration]= 0
-			)
-		formatString: 0
-		lineageTag: eb889561-6da8-4c3c-88af-28cd08c0cbb2
-
-	measure 'Main Within 90 days' =
-			
-			CALCULATE(
-			    COUNTROWS('Maintenance_Schedule'),
-			    'Maintenance_Schedule'[date_calculated_service_due]> TODAY() + 60,
-			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 90,
-			    'Service_Type'[is_type_calibration]= 0
-			)
-		formatString: 0
-		lineageTag: 20f696e0-1bb7-40ff-8902-0413fb648287
-
-	measure Space = BLANK()
-		formatString: 0
-		lineageTag: 51ee2f12-badc-4087-aabe-b4f84fa79f9c
-
-	measure 'Total Calibration' =
-			CALCULATE(COUNTROWS('Maintenance_Schedule'),
-			Service_Type[is_type_calibration]=1)
-		formatString: 0
-		lineageTag: 4bc39a44-9d34-4cdb-881f-64d916b7ad24
-
-	measure 'Total Maintenance' =
-			CALCULATE(COUNT('Maintenance_Schedule'[id]),
-			Service_Type[is_type_calibration]=0)
-		formatString: 0
-		lineageTag: 12c5eab8-c0a0-46d8-8888-e2df929e801e
-
-	measure 'Main Overdue' =
-			CALCULATE(COUNTROWS('Maintenance_Schedule'),
-			'Maintenance_Schedule'[date_calculated_service_due]<TODAY(),
-			ISBLANK('Maintenance_Schedule'[Date_Service_Completed]),
-			'Service_Type'[is_type_calibration]= 0)
-		formatString: 0
-		lineageTag: 3dd077d8-ac4b-4103-a987-bf03067408f0
-
-	measure 'Due Count' = CALCULATE(COUNTROWS('Maintenance_Schedule'), NOT ISBLANK(Maintenance_Schedule[date_calculated_service_due]))
-		formatString: 0
-		lineageTag: e7ff1c33-4a17-4f5e-a1d0-ab0cc00b765b
-
-	measure 'Completed Count' = ```
-			CALCULATE(COUNTROWS('Maintenance_Schedule'), USERELATIONSHIP('Date'[Date],'Maintenance_Schedule'[Date_Service_Completed]), NOT ISBLANK('Maintenance_Schedule'[Date_Service_Completed]))
-			
-			```
-		formatString: 0
-		lineageTag: f6c4cdd9-83a2-4206-9167-fb23c3300827
-
-	measure 'Date Service Completed Count' = CALCULATE(COUNTROWS('Maintenance_Schedule'), NOT ISBLANK('Maintenance_Schedule'[Date_Service_Completed]))
-		formatString: 0
-		lineageTag: 47ca2581-ed7b-452c-af3d-78506a4b9b16
-
-	measure 'Eq Overdue' =
-			
-			CALCULATE(
-			    DISTINCTCOUNT('Equipment'[id]),
-			    'Service_Type'[is_type_calibration] = 1,
-			    'Maintenance_Schedule'[date_calculated_service_due] < TODAY(),
-			    ISBLANK('Maintenance_Schedule'[Date_Service_Completed])
-			)
-		formatString: 0
-		lineageTag: 25afc5b5-336b-4616-8721-dfec111c1f7a
+		lineageTag: 400245c0-eb2b-48fa-a01d-2325e73894fe
 
 	column id
 		dataType: string
@@ -326,7 +207,7 @@ table Maintenance_Schedule
 			
 			IF (
 			    'Maintenance_Schedule'[date_calculated_service_due] < TODAY() &&
-			    ISBLANK('Maintenance_Schedule'[Date_Service_Completed]),
+			    ISBLANK(Maintenance_Schedule[Date_Service_Completed]),
 			    1,
 			    0
 			)
@@ -336,12 +217,11 @@ table Maintenance_Schedule
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Is Calibration Within 30 Days' =
+	column 'Calibration within 30 days Column' =
 			
-			IF (
-			    'Maintenance_Schedule'[date_calculated_service_due] >= TODAY() &&
-			    'Maintenance_Schedule'[date_calculated_service_due] <= TODAY() + 30 &&
-			    ISBLANK('Maintenance_Schedule'[Date_Service_Completed]),
+			IF(
+			    'Maintenance_Schedule'[date_calculated_service_due] > TODAY() &&
+			    'Maintenance_Schedule'[date_calculated_service_due] <= TODAY() + 30,
 			    1,
 			    0
 			)
@@ -401,6 +281,109 @@ table Maintenance_Schedule
 
 		annotation SummarizationSetBy = Automatic
 
+	column Rows = 1
+		formatString: 0
+		lineageTag: c15dd38e-487c-4800-a4c6-5c0a5e5e9d5f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Total_OverDue_Days_Calibration =
+			
+			CALCULATE(
+			    SUMX(
+			        'Maintenance_Schedule',
+			        VAR DueDate = 'Maintenance_Schedule'[date_calculated_service_due]
+			        VAR CompletedDate = 'Maintenance_Schedule'[Date_Service_Completed]
+			        RETURN
+			            IF(
+			                ISBLANK(CompletedDate) &&
+			                TODAY() > DueDate,
+			                DATEDIFF(DueDate, TODAY(), DAY),
+			                0
+			            )
+			    ),
+			    'Service_Type'[is_type_calibration] = 1
+			)
+		formatString: 0
+		lineageTag: 72d15102-f5b9-4544-b489-d9cce452176e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Overdue Flag' =
+			
+			IF(
+			    RELATED('Service_Type'[is_type_calibration]) = 1 &&
+			    'Maintenance_Schedule'[date_calculated_service_due] < TODAY() &&
+			    ISBLANK('Maintenance_Schedule'[Date_Service_Completed]),
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: e456a5c2-f1f0-4b8c-9f3f-cf5865f619f0
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rank per Equipment' =
+			
+			RANKX(
+			    FILTER(
+			        'Maintenance_Schedule',
+			        'Maintenance_Schedule'[equipment_id] = EARLIER('Maintenance_Schedule'[equipment_id]) &&
+			        RELATED('Department'[Department]) = EARLIER(RELATED('Department'[Department])) &&
+			        'Maintenance_Schedule'[Overdue Flag] = 1
+			    ),
+			    'Maintenance_Schedule'[date_calculated_service_due],
+			    ,
+			    ASC
+			)
+		formatString: 0
+		lineageTag: 173ba907-27f0-4aaa-97e2-29d17c9e6163
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Final Flag' =
+			
+			VAR MinID =
+			    CALCULATE(
+			        MIN('Maintenance_Schedule'[id]),
+			        FILTER(
+			            'Maintenance_Schedule',
+			            'Maintenance_Schedule'[equipment_id] = EARLIER('Maintenance_Schedule'[equipment_id]) &&
+			            RELATED('Service_Type'[is_type_calibration]) = 1 &&
+			            'Maintenance_Schedule'[date_calculated_service_due] < TODAY()
+			        )
+			    )
+			RETURN
+			IF(
+			    'Maintenance_Schedule'[id] = MinID,
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: 613c0ee6-f1f3-40f4-a2d9-9c3495bc73d6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsOverdue =
+			
+			IF(
+			    RELATED('Service_Type'[is_type_calibration]) = 1 &&
+			    ISBLANK('Maintenance_Schedule'[Date_Service_Completed]) &&
+			    'Maintenance_Schedule'[date_calculated_service_due] < TODAY(),
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: 1085d87b-f1b2-470d-b020-a793226d36e7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Maintenance_Schedule = m
 		mode: import
 		source =
@@ -409,7 +392,7 @@ table Maintenance_Schedule
 				    Workspaces = Source{[Id="Workspaces"]}[Data],
 				    Workspace = Workspaces{[workspaceId=getWorkspaceUUID ()]}[Data],
 				    Dataflow = Workspace {[dataflowId=getDataflowUUID ("Equipment_DF_Test")]}[Data],
-				    #"Maintenance Schedule_" = Dataflow{[entity="Maintenance Schedule",version=""]}[Data],
+				    #"Maintenance Schedule_" = Dataflow{[entity="Maintenance_Schedule",version=""]}[Data],
 				    #"Merged Queries" = Table.NestedJoin(#"Maintenance Schedule_", {"id"}, Date_Service_Completed, {"maintenance_schedule_id"}, "Date_Service_Completed", JoinKind.LeftOuter),
 				    #"Expanded Date_Service_Completed" = Table.ExpandTableColumn(#"Merged Queries", "Date_Service_Completed", {"Date_Service_Completed"}, {"Date_Service_Completed.Date_Service_Completed"}),
 				    #"Renamed Columns" = Table.RenameColumns(#"Expanded Date_Service_Completed",{{"Date_Service_Completed.Date_Service_Completed", "Date_Service_Completed"}}),

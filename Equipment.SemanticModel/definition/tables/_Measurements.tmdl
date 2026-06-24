@@ -1,0 +1,156 @@
+table _Measurements
+	lineageTag: 50765b8a-7eb8-464e-bf8c-b8018ac15f4b
+
+	measure 'Equ Cal Overdue' =
+			
+			CALCULATE(
+			    COUNTROWS(Equipment),
+			    'Service_Type'[is_type_calibration] = 1,
+			    'Maintenance_Schedule'[date_calculated_service_due] < TODAY(),
+			    ISBLANK('Maintenance_Schedule'[Date_Service_Completed])
+			)
+		formatString: 0
+		lineageTag: f7dfc94a-3e12-415a-848e-f50281ffd64b
+
+	measure 'Equ Cal Within 30 days' =
+			
+			CALCULATE(
+			    COUNTROWS('Equipment'),
+			    'Maintenance_Schedule'[date_calculated_service_due]>= TODAY(),
+			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 30,
+			    'Service_Type'[is_type_calibration]= 1
+			)
+		formatString: 0
+		lineageTag: 099350ab-fa6e-4b9d-b80a-d8b5c8423fda
+
+	measure 'Equ Cal Within 60 days' =
+			
+			CALCULATE(
+			    COUNTROWS('Equipment'),
+			    'Maintenance_Schedule'[date_calculated_service_due]> TODAY(),
+			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 60,
+			    'Service_Type'[is_type_calibration]= 1
+			)
+		formatString: 0
+		lineageTag: 38091f2f-4cf2-4649-8bdb-9f4a0e10b533
+
+	measure 'Total Equipment' = COUNTROWS(Equipment)
+		formatString: #,0
+		lineageTag: d3e39e93-af5e-4311-980b-c35824554861
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Cal Overdue' =
+			CALCULATE (COUNTROWS(Maintenance_Schedule),
+			'Service_Type'[is_type_calibration]= 1,
+			'Maintenance_Schedule'[date_calculated_service_due]<TODAY(),
+			ISBLANK('Maintenance_Schedule'[Date_Service_Completed])
+			)
+		formatString: 0
+		lineageTag: be54aa55-318a-4de6-b774-b35af51216a3
+
+	measure 'Cal Within 30 days' =
+			
+			CALCULATE(
+			    COUNTROWS('Maintenance_Schedule'),
+			    'Maintenance_Schedule'[date_calculated_service_due]>= TODAY(),
+			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 30,
+			    'Service_Type'[is_type_calibration]= 1
+			)
+		formatString: 0
+		lineageTag: d9e684a3-e093-4b31-b168-0976385c3303
+
+	measure 'Cal Within 60 days' =
+			
+			CALCULATE(
+			    COUNTROWS('Maintenance_Schedule'),
+			    'Maintenance_Schedule'[date_calculated_service_due]> TODAY(),
+			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 60,
+			    'Service_Type'[is_type_calibration]= 1
+			)
+		formatString: 0
+		lineageTag: 89614799-843f-4dfb-90dd-1b64c85612c1
+
+	measure 'Cal Within 90 days' =
+			
+			CALCULATE(
+			    COUNTROWS('Maintenance_Schedule'),
+			    'Maintenance_Schedule'[date_calculated_service_due]> TODAY() + 60,
+			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 90,
+			    'Service_Type'[is_type_calibration]= 1
+			)
+		formatString: 0
+		lineageTag: cf4f6302-2f6e-4f48-87ff-e233b79f8fdd
+
+	measure 'Main Overdue' =
+			CALCULATE(COUNTROWS('Maintenance_Schedule'),
+			'Maintenance_Schedule'[date_calculated_service_due]<TODAY(),
+			ISBLANK('Maintenance_Schedule'[Date_Service_Completed]),
+			'Service_Type'[is_type_calibration]= 0)
+		formatString: 0
+		lineageTag: 3dd077d8-ac4b-4103-a987-bf03067408f0
+
+	measure 'Main Within 30 days' =
+			
+			CALCULATE(
+			    COUNTROWS('Maintenance_Schedule'),
+			    'Maintenance_Schedule'[date_calculated_service_due]>= TODAY(),
+			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 30,
+			    'Service_Type'[is_type_calibration]= 0
+			)
+		formatString: 0
+		lineageTag: 86f4d42f-b780-4db8-8abe-2c9a8486d763
+
+	measure 'Main Within 60 days' =
+			
+			CALCULATE(
+			    COUNTROWS('Maintenance_Schedule'),
+			    'Maintenance_Schedule'[date_calculated_service_due]> TODAY() +30,
+			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 60,
+			    'Service_Type'[is_type_calibration]= 0
+			)
+		formatString: 0
+		lineageTag: eb889561-6da8-4c3c-88af-28cd08c0cbb2
+
+	measure 'Main Within 90 days' =
+			
+			CALCULATE(
+			    COUNTROWS('Maintenance_Schedule'),
+			    'Maintenance_Schedule'[date_calculated_service_due]> TODAY() + 60,
+			    'Maintenance_Schedule'[date_calculated_service_due]<= TODAY() + 90,
+			    'Service_Type'[is_type_calibration]= 0
+			)
+		formatString: 0
+		lineageTag: 20f696e0-1bb7-40ff-8902-0413fb648287
+
+	measure Space = BLANK()
+		formatString: 0
+		lineageTag: 51ee2f12-badc-4087-aabe-b4f84fa79f9c
+
+	measure 'Total Calibration' =
+			CALCULATE(COUNTROWS('Maintenance_Schedule'),
+			Service_Type[is_type_calibration]=1)
+		formatString: 0
+		lineageTag: 4bc39a44-9d34-4cdb-881f-64d916b7ad24
+
+	measure 'Total Maintenance' =
+			CALCULATE(COUNT('Maintenance_Schedule'[id]),
+			Service_Type[is_type_calibration]=0)
+		formatString: 0
+		lineageTag: 12c5eab8-c0a0-46d8-8888-e2df929e801e
+
+	column Value
+		formatString: 0
+		lineageTag: 39acafd0-00ca-48e7-8578-fb72752460a8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measurements = calculated
+		mode: import
+		source = { 1 }
+
+	annotation PBI_Id = f4578cf822ff410f9df7d47d3854e697
+

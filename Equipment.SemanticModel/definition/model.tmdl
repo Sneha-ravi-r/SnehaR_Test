@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["Calibration_Category","Calibration (Old)","DF_Last_Updated","Equipment","Service_Type","Department","Maintenance_Schedule","Calibration","Date_Service_Completed","Workspace","Environment","getDataflowUUID","Dataflow_UUID","getWorkspaceUUID","Workspace_UUID","Checkout_Log","Checkout_Type"]
+annotation PBI_QueryOrder = ["Calibration_Category","Calibration (Old)","DF_Last_Updated","Equipment","Service_Type","Department","Checkout_log","Checkout_type","Maintenance_Schedule","Calibration","Date_Service_Completed","Workspace","Environment","getDataflowUUID","Dataflow_UUID","getWorkspaceUUID","Workspace_UUID","Equipment_Location"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -33,6 +33,12 @@ ref table LocalDateTable_8cb7f23f-9aa1-44cc-b401-f7c0a0239ea0
 ref table Date
 ref table LocalDateTable_faf7b449-b919-44fd-b1de-a38769a37673
 ref table Department
+ref table Checkout_log
+ref table LocalDateTable_0d9db0e1-868e-4325-92a0-7149e6e31444
+ref table LocalDateTable_a7d98824-4d8e-4728-9650-5f348133f41a
+ref table Checkout_type
+ref table LocalDateTable_4ccb7a6d-89a3-45b7-a6b4-a69347339327
+ref table LocalDateTable_edd45e19-266b-4b69-a4fd-af7abdc29a29
 ref table Maintenance_Schedule
 ref table LocalDateTable_3b91cde9-f1f4-422e-a1a4-70d29a147f7a
 ref table LocalDateTable_57121ef0-f008-499c-8ecb-eaf82d205b5b
@@ -50,14 +56,12 @@ ref table Dataflow_UUID
 ref table Workspace_UUID
 ref table Calendar
 ref table LocalDateTable_34d970fc-36dd-448f-abc9-bd795573ed87
-ref table Checkout_Log
-ref table LocalDateTable_19d8e233-c11e-46b3-b5f9-0281312797e1
-ref table LocalDateTable_fc240c0a-c7de-4857-8714-31254d9fa3e5
-ref table LocalDateTable_34919d38-e432-4269-8a2e-2e29b70f768d
-ref table LocalDateTable_6f4fba83-5460-4902-8776-9801c7d896d3
-ref table Checkout_Type
-ref table LocalDateTable_ea0fc141-9506-4cfa-9e91-1a927c63ee0d
-ref table LocalDateTable_9b51a55a-c78d-4079-9c73-c8ba3f6ba476
+ref table Equipment_Location
+ref table LocalDateTable_14d1b479-4834-427b-800c-8596455fd5ce
+ref table LocalDateTable_65d56bce-5e6f-47f3-b884-87985208e4fd
+ref table _Measurements
+ref table '_Test Measurements'
+ref table _Rough
 
 ref cultureInfo en-IN
 

@@ -1,19 +1,6 @@
 table Calibration
 	lineageTag: f0bc9d64-d5e7-4f98-97cd-e3902096dc23
 
-	measure 'Total Cal' = COUNTROWS('Calibration')
-		formatString: 0
-		lineageTag: 86430ffb-5a47-4a35-afa2-556130f7e621
-
-	measure 'Due Count Check' =
-			
-			CALCULATE(
-			    COUNTROWS('Maintenance_Schedule'),
-			    NOT ISBLANK('Maintenance_Schedule'[date_calculated_service_due])
-			)
-		formatString: 0
-		lineageTag: 93b87dbd-2796-42bc-b9f3-31fa73e7c016
-
 	column id
 		dataType: string
 		lineageTag: 834c7ce3-e3c4-4a10-8815-09aedc5175bd
