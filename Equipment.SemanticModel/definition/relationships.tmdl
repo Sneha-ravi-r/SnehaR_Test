@@ -214,3 +214,8 @@ relationship 53f18ffe-1115-4732-adbc-0a17475c95cc
 	fromColumn: Equipment_Location.date_last_updated
 	toColumn: LocalDateTable_65d56bce-5e6f-47f3-b884-87985208e4fd.Date
 
+relationship bb59d44d-bf05-4b57-a64c-01c54205eb7f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Maintenance_Schedule.date_last_service
+	toColumn: LocalDateTable_6801e5b7-07b1-4b4a-aa88-8ea20dc05e03.Date
+

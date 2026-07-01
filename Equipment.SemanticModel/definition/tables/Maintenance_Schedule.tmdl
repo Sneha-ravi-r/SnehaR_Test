@@ -384,6 +384,22 @@ table Maintenance_Schedule
 
 		annotation SummarizationSetBy = Automatic
 
+	column date_last_service
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2a31c7d0-dae9-455c-bc69-5b2c43dd4c27
+		summarizeBy: none
+		sourceColumn: date_last_service
+
+		variation Variation
+			isDefault
+			relationship: bb59d44d-bf05-4b57-a64c-01c54205eb7f
+			defaultHierarchy: LocalDateTable_6801e5b7-07b1-4b4a-aa88-8ea20dc05e03.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	partition Maintenance_Schedule = m
 		mode: import
 		source =
